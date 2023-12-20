@@ -11,8 +11,17 @@ class ListNode:
 
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-        pass
+        nead = ListNode()
+        current = nead
 
+        while current:
+            pass
+
+        return ListNode()
+
+
+    def min_index(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        pass
 
 solution = Solution()
 # x = solution.int_to_list(123)
