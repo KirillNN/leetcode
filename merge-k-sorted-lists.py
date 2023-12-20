@@ -8,20 +8,30 @@ class ListNode:
         self.val = val
         self.next = next
 
+    def __str__(self):
+        values = []
+        x = self
+        while x:
+            values.append(x.val)
+            x = x.next
+        return str(values)
+
 
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-        nead = ListNode()
-        current = nead
+        head = ListNode()
+        current = head
+        while any(lists):
+            x = [(index, value.val) for index, value in enumerate(lists) if value is not None]
+            min_value = min(x, key=lambda item: item[1])[0]
+            current.next = lists[min_value]
+            current = current.next
+            lists[min_value] = lists[min_value].next
 
-        while current:
-            pass
-
-        return ListNode()
+        return head.next
 
 
-    def min_index(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-        pass
+
 
 solution = Solution()
 # x = solution.int_to_list(123)
