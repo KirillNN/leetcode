@@ -31,7 +31,21 @@ class Solution:
         return head.next
 
 
+    def mergeKLists_fast(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        head = tmp = ListNode()
+        arr = []
 
+        for l in lists:
+            while l != None:
+                arr.append(l.val)
+                l = l.next
+
+        for val in sorted(arr):
+            tmp.next = ListNode()
+            tmp = tmp.next
+            tmp.val = val
+
+        return head.next
 
 solution = Solution()
 # x = solution.int_to_list(123)
@@ -39,5 +53,5 @@ solution = Solution()
 x1 = ListNode(1, ListNode(4, ListNode(5)))
 x2 = ListNode(1, ListNode(3, ListNode(4)))
 x3 = ListNode(2, ListNode(6))
-z = solution.mergeKLists([x1, x2, x3])
+z = solution.mergeKLists_fast([x1, x2, x3])
 print(z)
